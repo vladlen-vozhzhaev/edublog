@@ -9,6 +9,7 @@ if($result->num_rows && password_verify($pass, $row['pass'])){
     $_SESSION['name'] = $row['name'];
     $_SESSION['email'] = $row['email'];
     $_SESSION['id'] = $row['id'];
+    $_SESSION['avatar'] = $row['avatar'];
     header('Location: /profile.php');
 }else{
     echo "error";

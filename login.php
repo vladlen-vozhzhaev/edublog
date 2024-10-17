@@ -1,7 +1,3 @@
-<?php
-require_once('header.php');
-?>
-<div class="container px-4 px-lg-5">
     <h2 class="text-center">Авторизация</h2>
     <div class="col-md-6 mx-auto">
         <form action="php/loginHandler.php" method="post">
@@ -18,7 +14,3 @@ require_once('header.php');
             </div>
         </form>
     </div>
-</div>
-<?php
-require_once('footer.php');
-?>

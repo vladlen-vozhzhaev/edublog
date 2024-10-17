@@ -1,0 +1,55 @@
+<!-- Main Content-->
+<div class="container px-4 px-lg-5">
+  <div class="row gx-4 gx-lg-5 justify-content-center">
+    <div class="col-md-10 col-lg-8 col-xl-7" id="articlesPreview">
+
+
+
+
+      <!-- Divider-->
+      <hr class="my-4" />
+      <!-- Pager-->
+      <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Post preview
+<div class="post-preview">
+    <a href="post.html">
+        <h2 class="post-title">Man must explore, and this is exploration at its greatest</h2>
+        <h3 class="post-subtitle">Many say exploration is part of our destiny, but it’s actually our duty to future generations.</h3>
+    </a>
+    <p class="post-meta">
+        Posted by
+        <a href="#!">Start Bootstrap</a>
+        on September 24, 2023
+    </p>
+</div>-->
+
+<script>
+  const articlesPreview = document.getElementById('articlesPreview');
+  fetch('/getArticles')
+          .then(response=>response.json())
+          .then(result=>{
+            console.log(result)
+            result.forEach(article=>{
+              const postPreview = document.createElement('div');
+              const a = document.createElement('a');
+              const p = document.createElement('p');
+              const h2 = document.createElement('h2');
+              const hr = document.createElement('hr');
+              hr.classList.add('my-4');
+              postPreview.classList.add('post-preview');
+              a.href = '/';
+              p.classList.add("post-meta");
+              h2.classList.add('post-title');
+              h2.innerText = article.title;
+              p.innerText = `Posted by ${article.author_id} on September 24, 2023`;
+              a.append(h2);
+              postPreview.append(a, p);
+              articlesPreview.append(postPreview, hr);
+            })
+          })
+</script>
